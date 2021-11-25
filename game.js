@@ -13,8 +13,8 @@ var level = 0;
 
 //1. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
 $(document).keypress(function() {
+    console.log(started);
     if (!started) {
-  
       //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
       $("#level-title").text("Level " + level);
       nextSequence();
@@ -92,6 +92,17 @@ function checkAnswer(currentLevel){
 
         // 3. change the h1 title to say "Game Over, Press Any Key to Restart" if the user got the answer wrong.
         $("#level-title").text("GAME OVER LOSER! YOU ARE SOOOOOO LAME BROKSI! Press any key to Restart");
+
+        // reset the values to start over
+        startOver();
     }
 
+}
+
+function startOver(){
+    
+//3. Inside this function, you'll need to reset the values of level, gamePattern and started variables.
+  level = 0;
+  gamePattern = [];
+  started = false;
 }
